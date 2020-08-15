@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Volume of Cylinder</title>
+  <style>
+    input{
+    width:300px;
+    height:30px;
+    font-size:16px;
+    }
+    .result{
+    display:none;
+    font-size:16px;
+    font-family:sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <input id="radius" type="text" placeholder="Unesite poluprecnik valjka"/>
+  </p>
+   <p>
+    <input id="height" type="text" placeholder="Unesite visinu valjka"/>
+  </p>
+   <p>
+    <input id="submit" type="submit" value="Zapremina valjka"/>
+  </p>
+  <p class="result"> Rezultat:
+   <span id="volume">
+   </span>
+   </p>
+  </body>
+  <script>
+    
+    var calcCylinder ={
+    PI:3.14, 
+	getVolume: function(radius,height){
+    var volumeOfCylinder = (calcCylinder.PI*radius*radius*height);
+    return volumeOfCylinder;
+    }
+  }
+  
+    var radiusOfCilinder = 0;
+	var heightOfCilinder= 0;
+	var btn =document.querySelector("#btn-calc");
+	var btnClickHandler = function(){
+	radiusOfCilinder = document.querySelector("#radius").value;
+	heightOfCilinder =document.querySelector("#height").value;
+	var volume = calcCylinder.getVolume(radiusOfCilinder, heightOfCilinder);
+	var spanVolume = document.querySelector("#volume");
+	spanVolume.textContent = volume;
+	document.querySelector(".result").style.display ="block";
+	}
+	
+	addEventListener("click", btnClickHandler);
+  </script>
+
+</body>
+</html>
